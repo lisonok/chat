@@ -1,0 +1,23 @@
+{
+  "name": "chat",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.14.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "start": "node app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lisonok/chat.git"
+  },
+  "author": "Alec Zvoncov",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lisonok/chat/issues"
+  },
+  "homepage": "https://github.com/lisonok/chat#readme"
+}
