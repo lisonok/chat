@@ -1,5 +1,15 @@
 extends layout
 
 block content
+  nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        a.navbar-brand(href='/') Чат
+      ul.nav.navbar-nav.navbar-right
+        li
+          a Здравствуйте, #{user}
+        li
+          a#logout(href='#') Выход
+
   h1= title
   p Welcome to #{title}

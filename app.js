@@ -20,10 +20,29 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public')));
+
+
+var mongoose = require('./mongoose');
+
+const session = require('express-session');
+const MongoStore = require('connect-mongo')(session);
+
+
+app.use(session({
+  secret: "123",
+  key: "sid",
+  cookie: {
+    "path": "/",
+    "httpOnly": true,
+    "maxAge": null
+  },
+  store: new MongoStore({mongooseConnection: mongoose.connection})
+})); // сессия
 
 app.use('/', routes);
 app.use('/users', users);
+
+app.use(express.static(path.join(__dirname, 'public')));
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

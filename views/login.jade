@@ -1,12 +1,23 @@
 extends layout
 
 block content
-  form
-    .form-group
-      label(for='login') Логин
-      input#login.form-control(type='text', placeholder='Логин')
-    .form-group
-      label(for='password') Пароль
-      input#password.form-control(type='password', placeholder='Пароль')
+  nav.navbar.navbar-default
+    .container-fluid
+      .navbar-header
+        a.navbar-brand(href='/') Чат
+      ul.nav.navbar-nav.navbar-right
+        li
+          a(href='#') Войти
+  form#form
+    fieldset#fieldset
+      .form-group
+        label(for='login') Логин
+        input#login.form-control(type='text', placeholder='Логин', name='login')
+      .form-group
+        label(for='password') Пароль
+        input#password.form-control(type='password', placeholder='Пароль', name='password')
 
-    button.btn.btn-default(type='submit') Авторизоваться
+      button.btn.btn-default#submit(type='submit') Авторизоваться
+
+      span.label.label-warning.hide#load Идет авторизация...
+      span.label.label-danger.hide#error Ошибка авторизации
